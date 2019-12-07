@@ -49,7 +49,7 @@ cfg.estimator = @estimate_cdr_robust_unbiased;    % unbiased, "robust" estimator
 %cfg.estimator = @estimate_cdr_nodiffuse;          % noise coherence-independent estimator (CDRprop4; does not work for TDOA -> 0!)
 
 %% preparation
-[x,fs_in] = wavread('wav/roomC-2m-75deg.wav');
+[x,fs_in] = audioread('wav/roomC-2m-75deg.wav');
 x = resample(x,cfg.fs,fs_in);
 
 %% Signal processing
@@ -92,7 +92,7 @@ fprintf('done (%.2fs).\n', toc);
 
 %% output
 % write output file
-wavwrite(y,cfg.fs, 'wav/out.wav');
+audiowrite('wav/out.wav',y,cfg.fs);
 
 %% visualization
 figure(1)
