@@ -112,3 +112,15 @@ colorbar
 title('Filter gain')
 xlabel('frame index')
 ylabel('subband index')
+
+%% Dereverberation visualization
+
+figure; 
+subplot(211); imagesc(10*log10(abs(Postfilter_input))); 
+colormap('jet'); ylabel('subband index');
+set(gca,'YDir','normal'); title('|Y(l,f)|'); colorbar;
+
+subplot(212); imagesc(10*log10(abs(Processed))); 
+ylabel('subband index');xlabel('frame index'); 
+set(gca,'YDir','normal');
+title('|Z(l,f)|'); colorbar;colormap('jet');
